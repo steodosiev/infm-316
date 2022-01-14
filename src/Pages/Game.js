@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import Board from "../Components/Board";
 import {calculateWinner} from "../gameHelper";
 import {useParams} from "react-router-dom";
+import EndGameModal from "../Components/EndGameModal";
 
 const Game = () => {
     const [history, setHistory] = useState([Array(9).fill(null)]);
@@ -45,12 +46,17 @@ const Game = () => {
             );
         });
 
-    const winnerTitle = <div className="winner-title">The Winner is: {players[winner]}!!!</div>
-    const nextPlayer = stepNumber === 9 ? <h3>The Game is Draw</h3> : <h3>{"Next Player: " + players[xO]}</h3>
+    const closeModal = () => {
+        jumpTo(0);
+        setHistory([Array(9).fill(null)])
+    }
+
+    const nextPlayer = stepNumber === 9 ? "" : <h3>{"Next Player: " + players[xO]}</h3>
+    const modalText = !!winner ? `The Winner is: ${players[winner]}!!!` : "The Game is Draw"
 
     return (
         <div className="game">
-            {!!winner ? winnerTitle : nextPlayer}
+            {!winner && nextPlayer}
             <Board squares={history[stepNumber]} onClick={handleClick}/>
             <div className="info-wrapper">
                 <div className="history-section">
@@ -59,6 +65,8 @@ const Game = () => {
 
                 </div>
             </div>
+            <EndGameModal isOpen={!!winner || stepNumber === 9} onClose={closeModal}
+                          text={modalText}/>
         </div>
     );
 };

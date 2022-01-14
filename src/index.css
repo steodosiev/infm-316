@@ -138,7 +138,7 @@ nav {
     color: red;
     margin: 0;
     font-size: 36px;
-    padding: 6px 0;
+    padding-bottom: 20px;
 }
 
 .landing-page {
@@ -163,7 +163,7 @@ nav {
     padding: 5px 10px;
 }
 
-.start-game-button {
+.game-button {
     background-color: #d0e4ff;
     border: none;
     color: #000000;
@@ -178,7 +178,7 @@ nav {
     font-weight: bold;
 }
 
-.start-game-button:hover {
+.game-button:hover {
     box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 

@@ -35,7 +35,7 @@ const LandingPage = () => {
             <NameInput key="player1" label="Player 1:" name={player1} onChange={onPlayer1Change}/>
             <NameInput key="player2" label="Player 2:" name={player2} onChange={onPlayer2Change}/>
             {hasError && <div className="error">{errorText}</div>}
-            <button className="start-game-button" onClick={onClick}>Start Game</button>
+            <button className="game-button" onClick={onClick}>Start Game</button>
         </div>
     );
 };
